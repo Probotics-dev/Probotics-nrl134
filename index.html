@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProBotics | Official Team Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050912;
+            --bg-card: #0B1326;
+            --bg-card-hover: #121E3B;
+            --primary-blue: #0075FF;
+            --cyan-glow: #00D2FF;
+            --metallic-white: #E6EDF8;
+            --text-muted: #8A99AD;
+            --border-color: rgba(0, 117, 255, 0.25);
+            --font-head: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--metallic-white); font-family: var(--font-body); overflow-x: hidden; }
+
+        /* --- PRELOADER ANIMATION ON ARRIVAL --- */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #03060C;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader-logo {
+            width: 140px; height: 140px;
+            animation: pulseZoom 2s infinite ease-in-out;
+            filter: drop-shadow(0 0 25px rgba(0, 117, 255, 0.8));
+        }
+
+        .preloader-title {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFF;
+            margin-top: 1.5rem;
+            letter-spacing: 4px;
+            animation: textFade 1.5s ease-in-out;
+        }
+
+        .preloader-title span { color: var(--primary-blue); }
+
+        .progress-bar-container {
+            width: 200px; height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%; height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--cyan-glow));
+            animation: loadProgress 2.2s forwards ease-in-out;
+        }
+
+        @keyframes pulseZoom {
+            0% { transform: scale(0.9); filter: drop-shadow(0 0 15px rgba(0, 117, 255, 0.4)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 35px rgba(0, 210, 255, 0.9)); }
+            100% { transform: scale(0.9); filter: drop-shadow(0 0 15px rgba(0, 117, 255, 0.4)); }
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 8%; background: rgba(5, 9, 18, 0.9);
+            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 42px; width: auto; }
+        .logo-text { font-family: var(--font-head); font-size: 1.4rem; font-weight: 900; color: #fff; }
+        .logo-text span { color: var(--primary-blue); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: var(--cyan-glow); }
+
+        /* --- HERO --- */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 8% 4rem; }
+        .tag { display: inline-block; padding: 6px 14px; background: rgba(0, 117, 255, 0.15); border: 1px solid var(--primary-blue); color: var(--cyan-glow); font-family: var(--font-head); font-size: 0.8rem; border-radius: 20px; margin-bottom: 1.5rem; }
+        .hero h1 { font-family: var(--font-head); font-size: 3.5rem; line-height: 1.15; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero h1 span { color: var(--primary-blue); }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; }
+        .btn { display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, var(--primary-blue), #0052B5); color: #fff; font-family: var(--font-head); font-weight: 700; text-decoration: none; border-radius: 6px; box-shadow: 0 0 20px rgba(0, 117, 255, 0.4); }
+
+        footer { padding: 3rem 8%; background: #03060C; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <!-- ARRIVAL ANIMATION SCREEN -->
+    <div id="preloader">
+        <img src="logo.png" alt="ProBotics Emblem" class="preloader-logo">
+        <div class="preloader-title">PRO<span>BOTICS</span></div>
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="ProBotics Logo" class="logo-img">
+            <div class="logo-text">PRO<span>BOTICS</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="specs.html">Engineering Specs</a></li>
+            <li><a href="squad.html">The Squad</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="tag">ROBOTICS DIVISION • TEAM PROBOTICS</span>
+            <h1>DRIVEN BY <span>PRECISION,</span> DEFINED BY ACTION.</h1>
+            <p>Welcome to the official portal of Team ProBotics. High-torque mechanics, precise sensor arrays, and custom control software built for competitive dominance.</p>
+            <a href="specs.html" class="btn">View Hardware Specs</a>
+        </div>
+    </header>
+
+    <footer>
+        <p>&copy; 2026 <span>Team ProBotics</span>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hides preloader automatically after animation completes
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 2300);
+        });
+    </script>
+</body>
+</html>
